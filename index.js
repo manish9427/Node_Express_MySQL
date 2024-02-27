@@ -9,4 +9,14 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen();
+app.post("/hello", (req, res) => {
+  res.send("This the Post Method!");
+});
+
+// app.all("/test", (res, req) => {
+//   res.send("all Methods!");
+// });
+
+app.listen(port, () => {
+  console.log(`server is listening at http://localhost:${port}`);
+});
