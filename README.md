@@ -43,3 +43,7 @@ In this example, the body-parser middleware is used to parse incoming JSON and U
 # MongoDB
 
 # Mongoose
+
+new mongoose.Schema()
+mongoose.connect()
+mongoose.model("User",schema)
