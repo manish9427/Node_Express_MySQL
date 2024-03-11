@@ -47,3 +47,5 @@ In this example, the body-parser middleware is used to parse incoming JSON and U
 new mongoose.Schema()
 mongoose.connect()
 mongoose.model("User",schema)
+
+# bcryptjs
