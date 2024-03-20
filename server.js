@@ -14,5 +14,5 @@ app.get("/", (req, res) => {
   res.send("Server is connected");
 });
 app.listen(port, () => {
-  console.log(`Server is running http://localhost:3000/ on port ${port}`);
+  console.log(`Server is running http://localhost:${port}`);
 });
