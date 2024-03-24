@@ -5,12 +5,11 @@ const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    // Check if the username already exists
-    const existingUser = await User.findOne({ name });
-
+    // Check if the email already exists
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
-      // Username already exists, return an error response
-      return res.status(400).json({ error: "Username is already taken" });
+      // Email already exists, return an error response
+      return res.status(400).json({ error: "Email is already registered" });
     }
 
     // Hash the password
@@ -30,37 +29,9 @@ const signup = async (req, res) => {
     res.status(201).json({ message: "User created successfully" });
   } catch (error) {
     // Handle any unexpected errors
-    res.status(500).json({ error: error.message });
+    res.status(404).json({ error: error.message });
   }
 };
-
-// const signup = async (req, res) => {
-//   const { name, email, password } = req.body;
-
-//   const isPresent = await User.findOne({ email });
-//   if (isPresent) {
-//     res.status(404);
-//     res.send({ message: "Email Already registred" });
-//   } else {
-//     bcrypt.hash(password, 5, async function (err, hash) {
-//       if (err) {
-//         res
-//           .status(404)
-//           .send({ message: "Something went wrong please try later" });
-//       }
-
-//       try {
-//         const user = new UserModel({ name, email, password: hash });
-//         await user.save();
-//         res.send({ message: "Registration successful" });
-//       } catch (error) {
-//         res
-//           .status(404)
-//           .send({ message: "Something went wrong please try later" });
-//       }
-//     });
-//   }
-// };
 
 // const getAllUser = async (req, res) => {
 //   try {
